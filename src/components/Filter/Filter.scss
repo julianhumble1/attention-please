@@ -1,0 +1,59 @@
+.filter{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    h3{
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .search{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+        input{
+            background-color: #D3D3D3;
+            border: none;
+            border-radius: 5px;
+            color: #e2e2e2;
+            padding: 5px;
+        }
+
+        button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30px;
+                background-color: #A4161A;
+                color: #e2e2e2;
+                cursor: pointer;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+            }
+        
+            button:hover {
+                background-color: rgb(122, 13, 16);
+            }
+    }
+
+    .type{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        h5{
+            font-size: 15px;
+        }
+
+        .radios{
+            label{
+                margin: 0px 5px;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,21 @@
+#header {
+    background-color: #A4161A;
+}
+
+#admin-button {
+    color: #660708;
+    border: 0;
+    font-size: small;
+    font-weight:lighter
+}
+
+#admin-button:hover {
+    color: #161A1D;
+    font-weight: normal
+}
+
+.major-mono-display-regular {
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    font-style: normal;
+}

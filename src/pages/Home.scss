@@ -1,0 +1,17 @@
+.home{
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    gap: 100px;
+    
+    .filter{
+        flex: 1;
+    }
+
+    .list{
+        flex: 4;
+    }
+}
