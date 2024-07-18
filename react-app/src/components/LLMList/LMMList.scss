@@ -1,5 +1,16 @@
 .LLMList{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
+
+    .headings{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        span{
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
 }

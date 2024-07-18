@@ -6,12 +6,15 @@
     height: 50px;
     border-radius: 10px;
     background: rgb(211, 211, 211);
-    background: linear-gradient(140deg, rgba(211, 211, 211, 1) 90%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(140deg, #F5F3F4 90%, #FFFFFF 100%);
     align-items: center;
     padding: 10px;
     transition: transform .2s;
+    -webkit-box-shadow: -4px -3px 13px 0px rgba(0, 0, 0, 0.69);
+    box-shadow: -4px -3px 13px 0px rgba(0, 0, 0, 0.69);
 }
 
 .LLMCard:hover{
     transform: scale(1.03);
+    background: linear-gradient(140deg, #D3D3D3 90%, #FFFFFF 100%);
 }

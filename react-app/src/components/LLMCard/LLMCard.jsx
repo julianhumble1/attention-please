@@ -2,9 +2,9 @@ import './LLMCard.scss';
 
 const LLMCard = () => {
     return (
-        <div className='LLMCard'>
+        <div className='LLMCard '>
           <span>Name</span>
-          <span>Type</span>
+          <span>Modality</span>
           <span>Company</span>
         </div>
   )

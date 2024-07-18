@@ -5,7 +5,7 @@ import './Home.scss';
 const Home = () => {
   return (
       <div className="home">
-          <div className="filter">
+          <div className="filterBox">
               <Filter/>
           </div>
           <div className="list">

@@ -8,3 +8,20 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+/*SCHEMA
+_id
+type
+name
+organization
+description
+created_date
+size
+modality
+access
+license
+dependencies
+
+user = hellogogo
+pass = hellogogo
+*/

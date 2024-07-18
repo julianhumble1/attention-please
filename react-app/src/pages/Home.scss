@@ -2,12 +2,22 @@
     padding: 50px;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
     width: 100vw;
     gap: 100px;
+    background-image: linear-gradient(320deg,
+                hsl(358deg 76% 36%) 0%,
+                hsl(6deg 46% 49%) 13%,
+                hsl(8deg 43% 61%) 29%,
+                hsl(9deg 34% 72%) 46%,
+                hsl(0deg 0% 83%) 65%,
+                hsl(330deg 1% 86%) 81%,
+                hsl(330deg 2% 89%) 93%,
+                hsl(330deg 4% 92%) 99%,
+                hsl(330deg 9% 96%) 100%);
+    min-height: calc(100vh - 63.5px);
     
-    .filter{
+    .filterBox{
         flex: 1;
     }
 
