@@ -1,11 +1,11 @@
 import './LLMCard.scss';
 
-const LLMCard = () => {
+const LLMCard = ({ key, type, name, organization, description, created, size, modality, access, license, dependencies }) => {
     return (
         <div className='LLMCard '>
-          <span>Name</span>
-          <span>Modality</span>
-          <span>Company</span>
+          <span>{name}</span>
+          <span>{modality}</span>
+          <span>{organization}</span>
         </div>
   )
 }

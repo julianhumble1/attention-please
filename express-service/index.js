@@ -1,27 +1,17 @@
-import express from "express";
-import { config } from "dotenv";
-import cors from "cors";
+import Config from "./src/config/Config.js";
+import Database from "./src/database/Database.js";
+import UserRoutes from "./src/routes/User.routes.js";
+import LLMRoutes from "./src/routes/LLM.routes.js";
+import Server from "./src/server/Server.js";
 
-config({ path: `.env.${process.env.NODE_ENV}` });
+Config.load()
+const { PORT, HOST, DB_URI } = process.env
 
-const app = express();
+const userRoutes = new UserRoutes()
+const llmRoutes = new LLMRoutes();
 
-app.use(cors());
-app.use(express.json());
+const database = new Database(DB_URI)
+database.connect();
 
-/*SCHEMA
-_id
-type
-name
-organization
-description
-created_date
-size
-modality
-access
-license
-dependencies
-
-user = hellogogo
-pass = hellogogo
-*/
+const server = new Server(PORT, HOST, userRoutes, llmRoutes)
+server.start()
