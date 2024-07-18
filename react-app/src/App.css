@@ -5,3 +5,9 @@
     font-style: normal;
 }
 
+.navlink{
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+}

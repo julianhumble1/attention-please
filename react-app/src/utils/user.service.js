@@ -3,7 +3,7 @@ import axios from "axios";
 export const loginService = async ({ email, password }) => {
   try {
     const loginRes = await axios.post(
-      `${import.meta.env.VITE_APP_BACKEND_URL}/login`,
+      `http://localhost:3000/user/login`,
       {
         email,
         password,

@@ -1,5 +1,5 @@
 .home{
-    padding: 50px;
+    padding: 30px 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -15,7 +15,7 @@
                 hsl(330deg 2% 89%) 93%,
                 hsl(330deg 4% 92%) 99%,
                 hsl(330deg 9% 96%) 100%);
-    min-height: calc(100vh - 63.5px);
+    min-height: calc(100vh - 74px);
     
     .filterBox{
         flex: 1;

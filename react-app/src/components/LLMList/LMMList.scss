@@ -1,18 +1,71 @@
-.LLMList{
+.LLMListView{
     display: flex;
     flex-direction: column;
+    width: 100%;
+
+    h3{
+        padding: 10px 20px;
+    }
+
+    .headings {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 2.5%;
+            margin-bottom: 10px;
+    
+            span {
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .name {
+                width: 15%;
+            }
+
+            .modality {
+                width: 25%;
+            }
+
+            .dateCreated {
+                width: 10%;
+            }
+
+            .access {
+                width: 10%;
+            }
+
+            .organization {
+                width: 40%;
+            }
+     }
+
+    .LLMList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 15px;
     max-height: 70vh;
     overflow: scroll;
+    overflow-x: hidden;
+    padding-top: 40px;
+    width: 100%;
 
-    .headings{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
-        span{
-            font-size: 18px;
-            font-weight: 600;
-        }
+    
+    }
+
+    .LLMList::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .LLMList::-webkit-scrollbar-track {
+        background: #E5383B;
+        border-radius: 2px;
+    }
+
+    .LLMList::-webkit-scrollbar-thumb {
+        background: #660708;
+        border-radius: 2px;
     }
 }
+

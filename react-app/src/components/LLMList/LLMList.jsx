@@ -1,9 +1,8 @@
-import './LMMList.scss';
+import "./LMMList.scss";
 import LLMCard from "../LLMCard/LLMCard.jsx";
 import { useEffect, useState } from "react";
 
-const LLMList = ({ models }) => {
-
+const LLMList = ({ models, setInfo }) => {
   const [modelsView, setModelsView] = useState([]);
 
   useEffect(() => {
@@ -20,26 +19,24 @@ const LLMList = ({ models }) => {
         access={model.access}
         license={model.license}
         dependencies={model.dependencies}
+        setInfo={setInfo}
       />
     ));
     setModelsView(modelCards);
-  },[models]);
+  }, [models]);
 
-  const handleModel = () => {
-    
-  };
-  
   return (
-    <div className="LLMList">
+    <div className="LLMListView">
       <h3>Large Language Models</h3>
-      <div className='headings'>
-        <span>Name</span>
-        <span>Modality</span>
-        <span>Organization</span>
+      <div className="headings">
+        <span className="name">Name</span>
+        <span className="modality">Modality</span>
+        <span className="dateCreated">Date Created</span>
+        <span className="access">Access</span>
+        <span className="organization">Organization</span>
       </div>
-      {modelsView}
-
+      <div className="LLMList">{modelsView}</div>
     </div>
-  )
-}
-export default LLMList
+  );
+};
+export default LLMList;

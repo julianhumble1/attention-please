@@ -6,7 +6,7 @@
 #admin-button {
     color: #660708;
     border: 0;
-    font-size: small;
+    font-size: 20px;
     font-weight:normal
 }
 
@@ -18,8 +18,9 @@
 #catalog-button {
     color: #660708;
     border: 0;
-    font-size: small;
-    font-weight: normal
+    font-size: 20px;
+    font-weight: normal;
+    padding-left: 20px;
 }
 
 #catalog-button:hover {
@@ -31,4 +32,5 @@
     font-family: "Major Mono Display", monospace;
     font-weight: 600;
     font-style: normal;
+    font-size: 24px;
 }
