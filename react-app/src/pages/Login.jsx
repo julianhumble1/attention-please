@@ -5,7 +5,7 @@ import ErrorModal from "../components/ErrorModal/ErrorModal";
 import SuccessModal from "../components/SuccessModal/SuccessModal";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({loggedIn, setLoggedIn}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [modal, setModal] = useState(false);
@@ -58,31 +58,33 @@ const Login = () => {
       />
       <div className="login">
         <h2>Admin Login</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={email}
-            placeholder="Email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <button type="submit" role="login">
-            Login
-          </button>
-        </form>
+        (!loggedIn &&
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <button type="submit" role="login">
+              Login
+            </button>
+          </form>
+        )
       </div>
     </>
   );

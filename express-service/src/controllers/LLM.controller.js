@@ -17,4 +17,15 @@ export default class LLMController {
             res.status(404).json({error: e.message})
         }
     }
+
+    getLLMById = async (req, res) => {
+        let response;
+        console.log(req.query.id)
+        try {
+            response = await this.#service.getLLMById(req.query.id)
+            return res.status(200).json(response)
+        } catch (e) {
+            return res.status(503).json(e.message)
+        }
+    }
 }

@@ -7,15 +7,16 @@ import Info from "./pages/Info.jsx";
 import { useState } from "react";
 
 const App = () => {
-  const [info, setInfo] = useState();
+  // const [info, setInfo] = useState();
+  const [loggedIn, setLoggedIn] = useState();
 
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home setInfo={setInfo} />} />
-        <Route path="login" element={<Login />} />
-        <Route path="/info" element={<Info info={info} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+        <Route path="/info/:id" element={<Info />} />
       </Routes>
     </>
   );

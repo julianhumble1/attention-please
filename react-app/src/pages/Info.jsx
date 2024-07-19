@@ -1,50 +1,89 @@
 import "./Info.scss";
 
-const Info = ({ info }) => {
+import { getModelById } from "../utils/llm.service.js";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+const Info = () => {
+
+  const modelId = useParams().id;
+  const [loading, setLoading] = useState(true);
+
+  const [modelInfo, setModelInfo] = useState();
+
+  useEffect(() => {
+
+    setLoading(true) 
+
+    const fetchModelData = async () => {
+      try {
+        const modelData = await getModelById(modelId)
+        if (typeof modelData.created_date == "string") {
+          modelData.created_date = modelData.created_date.slice(0,10)
+        } else {
+          modelData.created_date = null
+        }
+        setModelInfo(modelData)
+      } catch (e) {
+        console.log(e)
+        setModelInfo(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchModelData();
+    
+  }, [modelId])
+
+
   return (
-    <div className="info">
-      <h3>{info.name}</h3>
-      <div className="rowOne">
-        <div className="infoTitle">
-          <span className="infoLabel">Organization</span>
-          <span>{info.organization}</span>
+    (!loading &&
+      <div className="info">
+        <h3>{modelInfo.name}</h3>
+        <div className="rowOne">
+          <div className="infoTitle">
+            <span className="infoLabel">Organization</span>
+            <span>{modelInfo.organization}</span>
+          </div>
+          <div className="infoTitle">
+            <span className="infoLabel">Date Created</span>
+            <span>{modelInfo.created_date}</span>
+          </div>
+          <div className="infoTitle">
+            <span className="infoLabel">Type</span>
+            <span>{modelInfo.type}</span>
+          </div>
+          <div className="infoTitle">
+            <span className="infoLabel">Access</span>
+            <span>{modelInfo.access}</span>
+          </div>
+          <div className="infoTitle">
+            <span className="infoLabel">License</span>
+            <span>{modelInfo.license}</span>
+          </div>
         </div>
-        <div className="infoTitle">
-          <span className="infoLabel">Date Created</span>
-          <span>{info.created}</span>
-        </div>
-        <div className="infoTitle">
-          <span className="infoLabel">Type</span>
-          <span>{info.type}</span>
-        </div>
-        <div className="infoTitle">
-          <span className="infoLabel">Access</span>
-          <span>{info.access}</span>
-        </div>
-        <div className="infoTitle">
-          <span className="infoLabel">License</span>
-          <span>{info.license}</span>
+        <div className="rowTwo">
+          <div className="col">
+            <h4>Description</h4>
+            <span>{modelInfo.description}</span>
+          </div>
+          <div className="col">
+            <span>
+              <span className="label">Dependencies:</span> {modelInfo.dependencies.replace("[","").replace("]","")}
+            </span>
+            <span>
+              <span className="label">Size:</span> {modelInfo.size}
+            </span>
+            <span>
+              <span className="label">Modality:</span>{" "}
+              {modelInfo.modality.replace(";", ", ")}
+            </span>
+          </div>
         </div>
       </div>
-      <div className="rowTwo">
-        <div className="col">
-          <h4>Description</h4>
-          <span>{info.description}</span>
-        </div>
-        <div className="col">
-          <span>
-            <span className="label">Dependencies:</span> {info.dependencies}
-          </span>
-          <span>
-            <span className="label">Size:</span> {info.size}
-          </span>
-          <span>
-            <span className="label">Modality:</span>{" "}
-            {info.modality.replace(";", ", ")}
-          </span>
-        </div>
-      </div>
-    </div>
+
+    )
   );
 };
 export default Info;

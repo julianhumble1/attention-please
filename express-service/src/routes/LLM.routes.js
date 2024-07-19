@@ -7,7 +7,7 @@ export default class LLMRoutes {
     #routeStartPoint;
     #controller
 
-    constructor(controller = new LLMController(), routeStartPoint = "/") {
+    constructor(controller = new LLMController(), routeStartPoint = "/llm") {
         this.#routeStartPoint = routeStartPoint;
         this.#router = new Router();
         this.#controller = controller;
@@ -24,6 +24,11 @@ export default class LLMRoutes {
         this.#router.get(
             "/",
             this.#controller.getAllLLMs
+        )
+
+        this.#router.get(
+            "/single?",
+            this.#controller.getLLMById
         )
     }
 

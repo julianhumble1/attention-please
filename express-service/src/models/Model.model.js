@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const llmSchema = new mongoose.Schema({
-    _id: { type: String },
     type: { type: String },
     name: { type: String },
     organization: { type: String },

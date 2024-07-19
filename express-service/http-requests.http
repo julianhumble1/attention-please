@@ -1,4 +1,4 @@
-GET http://localhost:3000/
+GET http://localhost:3000/llm/
 content-type: application/json
 
 ###
@@ -10,3 +10,8 @@ content-type: application/json
     "email": "admin@email.com",
     "password": "Password123!"
 }
+
+###
+
+GET http://localhost:3000/llm/single?id=66991d803140a8d1e4c2b297
+content-type: application/json

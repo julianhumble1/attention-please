@@ -12,7 +12,7 @@ const Header = () => {
             </NavLink>
           </div>
           <div className="col-auto my-auto">
-            <Link className="btn" id="catalog-button">
+            <Link className="btn" id="catalog-button" to="/">
               LLM Catalog
             </Link>
           </div>

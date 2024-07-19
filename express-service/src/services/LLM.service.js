@@ -12,4 +12,16 @@ export default class LLMService {
         }
     }
 
+    getLLMById = async (id) => {
+        let LLM;
+        try {
+            console.log(id)
+            LLM = await Model.findById(id)
+            return LLM;
+        } catch (e) {
+            console.log(e.message)
+            throw new Error("No LLM matching ID provided")
+        }
+    }
+
 }

@@ -3,17 +3,18 @@ import "./LLMCard.scss";
 import { useNavigate } from "react-router-dom";
 
 const LLMCard = ({
-  type,
+  id,
+  // type,
   name,
   organization,
-  description,
+  // description,
   created,
-  size,
+  // size,
   modality,
   access,
-  license,
-  dependencies,
-  setInfo,
+  // license,
+  // dependencies,
+  // setInfo,
   accessFilter,
 }) => {
   const [dateCreated, setDateCreated] = useState("");
@@ -30,6 +31,7 @@ const LLMCard = ({
   }, [created]);
 
   useEffect(() => {
+    
     if (accessFilter === "all") {
       setShow("");
     } else if (accessFilter === access) {
@@ -40,19 +42,20 @@ const LLMCard = ({
   }, [accessFilter]);
 
   const handleInfo = () => {
-    setInfo({
-      type: type,
-      name: name,
-      organization: organization,
-      description: description,
-      created: dateCreated,
-      size: size,
-      modality: modality,
-      access: access,
-      license: license,
-      dependencies: dependencies,
-    });
-    navigate("/info");
+    // setInfo({
+    //   id: id,
+    //   type: type,
+    //   name: name,
+    //   organization: organization,
+    //   description: description,
+    //   created: dateCreated,
+    //   size: size,
+    //   modality: modality,
+    //   access: access,
+    //   license: license,
+    //   dependencies: dependencies,
+    // });
+    navigate(`info/${id}`);
   };
 
   return (

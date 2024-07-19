@@ -4,24 +4,47 @@ import { useEffect, useState } from "react";
 import { getModels } from "../utils/llm.service.js";
 import "./Home.scss";
 
-const Home = ({ setInfo }) => {
+const Home = ({  }) => {
   const [models, setModels] = useState([]);
   const [accessFilter, setAccessFilter] = useState("all");
   const [sortType, setSortType] = useState("name");
 
   useEffect(() => {
     handleGet(sortType);
-  }, [sortType]);
+  }, [sortType, accessFilter]);
 
   const handleGet = async (sortType) => {
     const modelRes = await getModels();
     if (modelRes.status === 200) {
       let sortedModels;
-      console.log(modelRes.data);
       if (sortType === "name") {
         sortedModels = modelRes.data.sort((a, b) => {
           if (a.name < b.name) return -1;
           if (a.name > b.name) return 1;
+        });
+      }
+      if (sortType === "modality") {
+        sortedModels = modelRes.data.sort((a, b) => {
+          if (a.modality < b.modality) return -1;
+          if (a.modality > b.modality) return 1;
+        });
+      }
+      if (sortType === "date") {
+        sortedModels = modelRes.data.sort((a, b) => {
+          if (a.created_date < b.created_date) return -1;
+          if (a.created_date > b.created_date) return 1;
+        });
+      }
+      if (sortType === "access") {
+        sortedModels = modelRes.data.sort((a, b) => {
+          if (a.access < b.access) return -1;
+          if (a.access > b.access) return 1;
+        });
+      }
+      if (sortType === "organization") {
+        sortedModels = modelRes.data.sort((a, b) => {
+          if (a.organization < b.organization) return -1;
+          if (a.organization > b.organization) return 1;
         });
       }
       setModels(sortedModels);
@@ -42,7 +65,7 @@ const Home = ({ setInfo }) => {
       <div className="list">
         <LLMList
           models={models}
-          setInfo={setInfo}
+          // setInfo={setInfo}
           accessFilter={accessFilter}
           setSortType={setSortType}
         />
