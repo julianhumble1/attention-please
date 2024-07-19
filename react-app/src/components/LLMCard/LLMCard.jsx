@@ -14,8 +14,10 @@ const LLMCard = ({
   license,
   dependencies,
   setInfo,
+  accessFilter,
 }) => {
   const [dateCreated, setDateCreated] = useState("");
+  const [show, setShow] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,6 +28,16 @@ const LLMCard = ({
       setDateCreated("");
     }
   }, [created]);
+
+  useEffect(() => {
+    if (accessFilter === "all") {
+      setShow("");
+    } else if (accessFilter === access) {
+      setShow("");
+    } else {
+      setShow("hidden");
+    }
+  }, [accessFilter]);
 
   const handleInfo = () => {
     setInfo({
@@ -44,7 +56,7 @@ const LLMCard = ({
   };
 
   return (
-    <div className="LLMCard" onClick={() => handleInfo()}>
+    <div className={`LLMCard ${show}`} onClick={() => handleInfo()}>
       <span className="name">{name}</span>
       <span className="modality">{modality.replace(";", ", ")}</span>
       <span className="dateCreated">{dateCreated}</span>

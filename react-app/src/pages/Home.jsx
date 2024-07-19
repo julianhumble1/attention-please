@@ -6,27 +6,46 @@ import "./Home.scss";
 
 const Home = ({ setInfo }) => {
   const [models, setModels] = useState([]);
+  const [accessFilter, setAccessFilter] = useState("all");
+  const [sortType, setSortType] = useState("name");
 
   useEffect(() => {
-    handleGet();
-  }, []);
+    handleGet(sortType);
+  }, [sortType]);
 
-  const handleGet = async () => {
+  const handleGet = async (sortType) => {
     const modelRes = await getModels();
     if (modelRes.status === 200) {
-      setModels(modelRes.data);
+      let sortedModels;
+      console.log(modelRes.data);
+      if (sortType === "name") {
+        sortedModels = modelRes.data.sort((a, b) => {
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+        });
+      }
+      setModels(sortedModels);
     } else {
       console.log(modelRes);
     }
   };
 
+  const handleAccessFilter = (access) => {
+    setAccessFilter(access);
+  };
+
   return (
     <div className="home">
       <div className="filterBox">
-        <Filter />
+        <Filter handleAccessFilter={handleAccessFilter} />
       </div>
       <div className="list">
-        <LLMList models={models} setInfo={setInfo} />
+        <LLMList
+          models={models}
+          setInfo={setInfo}
+          accessFilter={accessFilter}
+          setSortType={setSortType}
+        />
       </div>
     </div>
   );

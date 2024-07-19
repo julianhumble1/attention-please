@@ -1,15 +1,14 @@
 import "./Filter.scss";
 import { useState } from "react";
 
-const Filter = () => {
-  const [access, setAccess] = useState("all");
+const Filter = ({ handleAccessFilter }) => {
   const [all, setAll] = useState("active");
   const [open, setOpen] = useState("");
   const [limited, setLimited] = useState("");
   const [closed, setClosed] = useState("");
 
   const handleAccess = (access) => {
-    setAccess(access);
+    handleAccessFilter(access);
     switch (access) {
       case "all":
         if (all === "") {
