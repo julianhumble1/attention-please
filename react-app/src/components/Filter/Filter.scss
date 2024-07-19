@@ -1,17 +1,16 @@
 .filter{
     display: flex;
-    gap: 20px;
     flex-direction: column;
     background-color: #FFFFFF;
     border-radius: 5px;
-    padding: 15px;
+    padding: 40px;
     -webkit-box-shadow: -7px -3px 9px 1px rgba(0, 0, 0, 0.82);
     box-shadow: -7px -3px 9px 1px rgba(0, 0, 0, 0.82);
     margin-top: 100px;
 
-    h3{
-        font-size: 20px;
-        font-weight: 500;
+    h5{
+        margin-top: 15px;
+        margin-bottom: 10px;
     }
 
     .search{
@@ -20,6 +19,7 @@
         justify-content: center;
         gap: 15px;
         width: 100%;
+        margin-bottom: 30px;
 
         input{
             background-color: #D3D3D3;
@@ -36,6 +36,7 @@
         gap: 10px;
         justify-content: space-evenly;
         align-items: center;
+        margin-bottom: 50px;
 
         .typeRow{
             width: 100%;
@@ -70,6 +71,7 @@
         gap: 10px;
         justify-content: space-evenly;
         align-items: center;
+        margin-bottom: 25px;
 
         button {
                 display: flex;

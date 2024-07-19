@@ -128,6 +128,8 @@ const Filter = ({
 
   return (
     <div className="filter">
+      <h4>Filter LLMs</h4>
+      <h5>Name</h5>
       <div className="search">
         <input
           type="search"
@@ -140,6 +142,7 @@ const Filter = ({
           }}
         />
       </div>
+      <h5>Organization</h5>
       <div className="search">
         <input
           type="search"
