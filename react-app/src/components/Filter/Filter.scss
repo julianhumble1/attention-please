@@ -17,50 +17,50 @@
     .search{
         display: flex;
         flex-direction: row;
+        justify-content: center;
         gap: 15px;
+        width: 100%;
 
         input{
             background-color: #D3D3D3;
             border: none;
             border-radius: 5px;
-            color: #e2e2e2;
             padding: 5px;
+            width: 100%;
+        }
+    }
+
+    .type{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .typeRow{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
         }
 
         button {
                 display: flex;
                 align-items: center;
-                justify-content: center;
                 height: 30px;
-                background-color: #A4161A;
-                color: #e2e2e2;
                 cursor: pointer;
                 padding: 10px;
-                border: none;
                 border-radius: 5px;
-                
+                border: none;
+                transition: all 0.25s linear;
             }
         
-            button:hover {
-                background-color: rgb(122, 13, 16);
+            .active {
+                background-color: #A4161A;
+                color: #FFFFFF;
             }
-    }
-
-    .type{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
-
-        h5{
-            font-size: 15px;
-        }
-
-        .radios{
-            label{
-                margin: 0px 5px;
-            }
-        }
     }
 
     .access{

@@ -16,9 +16,15 @@ const LLMCard = ({
   // dependencies,
   // setInfo,
   accessFilter,
+  modalityFilter,
+  nameSearch,
+  orgSearch,
 }) => {
   const [dateCreated, setDateCreated] = useState("");
   const [show, setShow] = useState("");
+  const [showMod, setShowMod] = useState("");
+  const [showOrg, setShowOrg] = useState("");
+  const [showName, setShowName] = useState("");
 
   const navigate = useNavigate();
 
@@ -31,7 +37,23 @@ const LLMCard = ({
   }, [created]);
 
   useEffect(() => {
-    
+    if (orgSearch === "") {
+      setShowOrg("");
+    } else if (organization.includes(orgSearch)) {
+      setShowOrg("");
+    } else {
+      setShowOrg("hiddenOrg");
+    }
+    if (nameSearch === "") {
+      setShowName("");
+    } else if (name.includes(nameSearch)) {
+      setShowName("");
+    } else {
+      setShowName("hiddenName");
+    }
+  }, [orgSearch, nameSearch]);
+
+  useEffect(() => {
     if (accessFilter === "all") {
       setShow("");
     } else if (accessFilter === access) {
@@ -39,7 +61,14 @@ const LLMCard = ({
     } else {
       setShow("hidden");
     }
-  }, [accessFilter]);
+    if (modalityFilter === "allMod") {
+      setShowMod("");
+    } else if (modality.includes(modalityFilter)) {
+      setShowMod("");
+    } else {
+      setShowMod("hiddenMod");
+    }
+  }, [accessFilter, modalityFilter]);
 
   const handleInfo = () => {
     // setInfo({
@@ -59,7 +88,10 @@ const LLMCard = ({
   };
 
   return (
-    <div className={`LLMCard ${show}`} onClick={() => handleInfo()}>
+    <div
+      className={`LLMCard ${show} ${showMod} ${showOrg} ${showName}`}
+      onClick={() => handleInfo()}
+    >
       <span className="name">{name}</span>
       <span className="modality">{modality.replace(";", ", ")}</span>
       <span className="dateCreated">{dateCreated}</span>

@@ -4,14 +4,17 @@ import { useEffect, useState } from "react";
 import { getModels } from "../utils/llm.service.js";
 import "./Home.scss";
 
-const Home = ({  }) => {
+const Home = ({}) => {
   const [models, setModels] = useState([]);
   const [accessFilter, setAccessFilter] = useState("all");
+  const [modalityFilter, setModalityFilter] = useState("allMod");
+  const [nameSearch, setNameSearch] = useState("");
+  const [orgSearch, setOrgSearch] = useState("");
   const [sortType, setSortType] = useState("name");
 
   useEffect(() => {
     handleGet(sortType);
-  }, [sortType, accessFilter]);
+  }, [sortType, accessFilter, modalityFilter, nameSearch, orgSearch]);
 
   const handleGet = async (sortType) => {
     const modelRes = await getModels();
@@ -57,16 +60,36 @@ const Home = ({  }) => {
     setAccessFilter(access);
   };
 
+  const handleModalityFilter = (modality) => {
+    setModalityFilter(modality);
+  };
+
+  const handleNameSearch = (name) => {
+    setNameSearch(name);
+  };
+
+  const handleOrgSearch = (org) => {
+    setOrgSearch(org);
+  };
+
   return (
     <div className="home">
       <div className="filterBox">
-        <Filter handleAccessFilter={handleAccessFilter} />
+        <Filter
+          handleAccessFilter={handleAccessFilter}
+          handleModalityFilter={handleModalityFilter}
+          handleNameSearch={handleNameSearch}
+          handleOrgSearch={handleOrgSearch}
+        />
       </div>
       <div className="list">
         <LLMList
           models={models}
           // setInfo={setInfo}
           accessFilter={accessFilter}
+          modalityFilter={modalityFilter}
+          nameSearch={nameSearch}
+          orgSearch={orgSearch}
           setSortType={setSortType}
         />
       </div>

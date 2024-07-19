@@ -2,7 +2,14 @@ import "./LMMList.scss";
 import LLMCard from "../LLMCard/LLMCard.jsx";
 import { useEffect, useState } from "react";
 
-const LLMList = ({ models, setSortType, accessFilter }) => {
+const LLMList = ({
+  models,
+  setSortType,
+  accessFilter,
+  modalityFilter,
+  nameSearch,
+  orgSearch,
+}) => {
   const [modelsView, setModelsView] = useState([]);
 
   useEffect(() => {
@@ -22,6 +29,9 @@ const LLMList = ({ models, setSortType, accessFilter }) => {
         // dependencies={model.dependencies}
         // setInfo={setInfo}
         accessFilter={accessFilter}
+        modalityFilter={modalityFilter}
+        nameSearch={nameSearch}
+        orgSearch={orgSearch}
       />
     ));
     setModelsView(modelCards);
@@ -31,11 +41,24 @@ const LLMList = ({ models, setSortType, accessFilter }) => {
     <div className="LLMListView">
       <h3>Large Language Models</h3>
       <div className="headings">
-        <span className="name" onClick={() => setSortType("name")}>Name</span>
-        <span className="modality" onClick={() => setSortType("modality")}>Modality</span>
-        <span className="dateCreated" onClick={() => setSortType("date")}>Date Created</span>
-        <span className="access" onClick={() => setSortType("access")}>Access</span>
-        <span className="organization" onClick={() => setSortType("organization")}>Organization</span>
+        <span className="name" onClick={() => setSortType("name")}>
+          Name
+        </span>
+        <span className="modality" onClick={() => setSortType("modality")}>
+          Modality
+        </span>
+        <span className="dateCreated" onClick={() => setSortType("date")}>
+          Date Created
+        </span>
+        <span className="access" onClick={() => setSortType("access")}>
+          Access
+        </span>
+        <span
+          className="organization"
+          onClick={() => setSortType("organization")}
+        >
+          Organization
+        </span>
       </div>
       <div className="LLMList">{modelsView}</div>
     </div>

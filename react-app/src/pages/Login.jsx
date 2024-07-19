@@ -5,7 +5,7 @@ import ErrorModal from "../components/ErrorModal/ErrorModal";
 import SuccessModal from "../components/SuccessModal/SuccessModal";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({loggedIn, setLoggedIn}) => {
+const Login = ({ loggedIn, setLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [modal, setModal] = useState(false);
@@ -58,7 +58,7 @@ const Login = ({loggedIn, setLoggedIn}) => {
       />
       <div className="login">
         <h2>Admin Login</h2>
-        (!loggedIn &&
+        {!loggedIn && (
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -84,7 +84,7 @@ const Login = ({loggedIn, setLoggedIn}) => {
               Login
             </button>
           </form>
-        )
+        )}
       </div>
     </>
   );
