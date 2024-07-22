@@ -58,7 +58,7 @@ const Login = ({loggedIn, setLoggedIn}) => {
       />
       <div className="login">
         <h2>Admin Login</h2>
-        (!loggedIn &&
+        {!loggedIn &&
           <form onSubmit={handleSubmit}>
             <input
               type="text"
