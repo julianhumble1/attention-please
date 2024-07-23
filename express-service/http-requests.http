@@ -15,3 +15,36 @@ content-type: application/json
 
 GET http://localhost:3000/llm/single?id=66991d803140a8d1e4c2b297
 content-type: application/json
+
+###
+
+PATCH http://localhost:3000/llm/update?id=66991d803140a8d1e4c2b297
+content-type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTkwZjJlNWZhYWRiZDJiZGZhMTk2YyIsImlhdCI6MTcyMTczODAyNiwiZXhwIjoxNzIxODI0NDI2fQ.ojcfLjBd_u3nAQRr6jtq5BenT-h-3DHqMeqXcReVNK4
+
+{
+    "userID": "66990f2e5faadbd2bdfa196c",
+    "type": "model",
+    "name" : "GenSLM",
+    "organization": "Argonne National Laboratory",
+    "description": "NaN",
+    "created_date": "2022-10-10T23:00:00.000Z",
+    "size": "25B parameters (dense)",
+    "size_int": 25000000000,
+    "modality": "text; genome sequence",
+    "access": "open",
+    "license": "MIT",
+    "dependencies": "['SARS-CoV-2 genome dataset', 'BV-BRC dataset']"
+}
+
+###
+
+PATCH http://localhost:3000/llm/update?id=66991d803140a8d1e4c2b297
+content-type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTkwZjJlNWZhYWRiZDJiZGZhMTk2YyIsImlhdCI6MTcyMTczODAyNiwiZXhwIjoxNzIxODI0NDI2fQ.ojcfLjBd_u3nAQRr6jtq5BenT-h-3DHqMeqXcReVNK4
+
+{
+    "userID": "66990f2e5faadbd2bdfa196c",
+    "type": "model",
+    "name" : "GenSLM"
+}

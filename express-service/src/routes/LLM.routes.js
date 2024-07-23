@@ -1,5 +1,7 @@
 import { Router } from "express";
 import LLMController from "../controllers/LLM.controller.js";
+import AuthJwt from "../middleware/authJWT.js";
+import ModelValidator from "../middleware/ModelValidator.js";
 
 export default class LLMRoutes {
 
@@ -29,6 +31,12 @@ export default class LLMRoutes {
         this.#router.get(
             "/single?",
             this.#controller.getLLMById
+        )
+
+        this.#router.patch(
+            "/update?",
+            [AuthJwt.verifyToken, AuthJwt.verifyAuth, ...ModelValidator.validateModelEdit()],
+            this.#controller.updateLLMById
         )
     }
 
