@@ -46,5 +46,5 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OTkwZjJlNWZhYWR
 {
     "userID": "66990f2e5faadbd2bdfa196c",
     "type": "model",
-    "name" : "GenSLM"
+    "size_int": 25000000000
 }

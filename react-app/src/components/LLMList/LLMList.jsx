@@ -7,6 +7,7 @@ const LLMList = ({
   setSortType,
   accessFilter,
   inputModalityFilter,
+  outputModalityFilter,
   nameSearch,
   orgSearch,
 }) => {
@@ -25,6 +26,7 @@ const LLMList = ({
         access={model.access}
         accessFilter={accessFilter}
         inputModalityFilter={inputModalityFilter}
+        outputModalityFilter={outputModalityFilter}
         nameSearch={nameSearch}
         orgSearch={orgSearch}
       />

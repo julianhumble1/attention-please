@@ -8,13 +8,14 @@ const Home = ({}) => {
   const [models, setModels] = useState([]);
   const [accessFilter, setAccessFilter] = useState("all");
   const [inputModalityFilter, setInputModalityFilter] = useState("allMod");
+  const [outputModalityFilter, setOutputModalityFilter] = useState("allMod");
   const [nameSearch, setNameSearch] = useState("");
   const [orgSearch, setOrgSearch] = useState("");
   const [sortType, setSortType] = useState("name");
 
   useEffect(() => {
     handleGet(sortType);
-  }, [sortType, accessFilter, inputModalityFilter, nameSearch, orgSearch]);
+  }, [sortType, accessFilter, inputModalityFilter, outputModalityFilter, nameSearch, orgSearch]);
 
   const handleGet = async (sortType) => {
     const modelRes = await getModels();
@@ -74,6 +75,7 @@ const Home = ({}) => {
         <Filter
           handleAccessFilter={handleAccessFilter}
           setInputModalityFilter={setInputModalityFilter}
+          setOutputModalityFilter={setOutputModalityFilter}
           handleNameSearch={handleNameSearch}
           handleOrgSearch={handleOrgSearch}
         />
@@ -84,6 +86,7 @@ const Home = ({}) => {
           // setInfo={setInfo}
           accessFilter={accessFilter}
           inputModalityFilter={inputModalityFilter}
+          outputModalityFilter={outputModalityFilter}
           nameSearch={nameSearch}
           orgSearch={orgSearch}
           setSortType={setSortType}

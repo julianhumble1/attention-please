@@ -15,7 +15,6 @@ export default class LLMService {
     getLLMById = async (id) => {
         let LLM;
         try {
-            console.log(id)
             LLM = await Model.findById(id)
             return LLM;
         } catch (e) {
@@ -26,7 +25,6 @@ export default class LLMService {
 
     updateLLMById = async (req) => {
         const llmId = req.query.id;
-        console.log(req.body)
         try {
             const updatedLLM = await Model.findOneAndUpdate(
                 { _id: llmId },
@@ -47,7 +45,6 @@ export default class LLMService {
                 },
                 { new: true }
             )
-            console.log(updatedLLM)
             if (!updatedLLM) {
                 throw new Error("LLM not found")
             }

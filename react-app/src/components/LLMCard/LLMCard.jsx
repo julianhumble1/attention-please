@@ -12,12 +12,14 @@ const LLMCard = ({
   access,
   accessFilter,
   inputModalityFilter,
+  outputModalityFilter,
   nameSearch,
   orgSearch,
 }) => {
   const [dateCreated, setDateCreated] = useState("");
   const [show, setShow] = useState("");
-  const [showMod, setShowMod] = useState("");
+  const [showInputMod, setShowInputMod] = useState("");
+  const [showOutputMod, setShowOutputMod] = useState("");
   const [showOrg, setShowOrg] = useState("");
   const [showName, setShowName] = useState("");
 
@@ -57,13 +59,20 @@ const LLMCard = ({
       setShow("hidden");
     }
     if (inputModalityFilter === "allMod") {
-      setShowMod("");
+      setShowInputMod("");
     } else if (inputModality.includes(inputModalityFilter)) {
-      setShowMod("");
+      setShowInputMod("");
     } else {
-      setShowMod("hiddenMod");
+      setShowInputMod("hiddenMod");
     }
-  }, [accessFilter, inputModalityFilter]);
+    if (outputModalityFilter === "allMod") {
+      setShowOutputMod("");
+    } else if (outputModality && outputModality.includes(outputModalityFilter)) {
+      setShowOutputMod("");
+    } else {
+      setShowOutputMod("hiddenMod");
+    }
+  }, [accessFilter, inputModalityFilter, outputModalityFilter]);
 
   const handleInfo = () => {
     navigate(`info/${id}`);
@@ -71,7 +80,7 @@ const LLMCard = ({
 
   return (
     <div
-      className={`LLMCard ${show} ${showMod} ${showOrg} ${showName}`}
+      className={`LLMCard ${show} ${showInputMod} ${showOrg} ${showName} ${showOutputMod}`}
       onClick={() => handleInfo()}
     >
       <span className="name">{name}</span>

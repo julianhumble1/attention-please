@@ -5,11 +5,16 @@ import "./App.css";
 import Login from "./pages/Login.jsx";
 import Info from "./pages/Info.jsx";
 import Matrix from "./pages/Matrix.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const App = () => {
   // const [info, setInfo] = useState();
   const [loggedIn, setLoggedIn] = useState();
+
+  useEffect(() => {
+    const id = localStorage.getItem("user")
+    if (id) {setLoggedIn(true)}
+  })
 
   return (
     <>
