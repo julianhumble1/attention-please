@@ -39,14 +39,14 @@ const LLMCard = ({
   useEffect(() => {
     if (orgSearch === "") {
       setShowOrg("");
-    } else if (organization.includes(orgSearch)) {
+    } else if (organization.toLowerCase().includes(orgSearch.toLowerCase())) {
       setShowOrg("");
     } else {
       setShowOrg("hiddenOrg");
     }
     if (nameSearch === "") {
       setShowName("");
-    } else if (name.includes(nameSearch)) {
+    } else if (name.toLowerCase().includes(nameSearch.toLowerCase())) {
       setShowName("");
     } else {
       setShowName("hiddenName");

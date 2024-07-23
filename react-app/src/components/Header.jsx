@@ -15,6 +15,9 @@ const Header = () => {
             <Link className="btn" id="catalog-button" to="/">
               LLM Catalog
             </Link>
+            <Link className="btn" to="/matrix" id="matrix-button">
+              Matrix
+            </Link>
           </div>
         </div>
         <div className="col-auto my-auto justify-content-end text-end">

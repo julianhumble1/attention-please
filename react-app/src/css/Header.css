@@ -34,3 +34,15 @@
     font-style: normal;
     font-size: 24px;
 }
+
+#matrix-button {
+    color: #660708;
+    border: 0;
+    font-size: 20px;
+    font-weight: normal
+}
+
+#matrix-button:hover {
+    color: #161A1D;
+    font-weight: 500
+}
