@@ -156,6 +156,8 @@ const Matrix = () => {
             slotProps={{ legend: { hidden: isHidden } }}
             leftAxis={null}
             bottomAxis={null}
+            xAxis={[{ min: -1, max: 1, }]}
+            yAxis={[{min: -1,max: 1,}]}
             voronoiMaxRadius={10}
             className="scatter"
           />

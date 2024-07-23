@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />

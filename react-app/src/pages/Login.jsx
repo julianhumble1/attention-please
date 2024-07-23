@@ -26,6 +26,7 @@ const Login = ({ loggedIn, setLoggedIn }) => {
         localStorage.setItem("userEmail", res.data.email);
         setEmail("");
         setPassword("");
+        setLoggedIn(true)
       } else {
         setErrorModal(true);
         setModalMessage(res.message);
