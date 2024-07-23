@@ -107,8 +107,6 @@ const Matrix = () => {
   });
 
     setSeries(seriesData);
-    console.log(seriesData);
-      
     },[]) 
   
 

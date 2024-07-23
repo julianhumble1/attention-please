@@ -6,7 +6,7 @@ const LLMList = ({
   models,
   setSortType,
   accessFilter,
-  modalityFilter,
+  inputModalityFilter,
   nameSearch,
   orgSearch,
 }) => {
@@ -17,19 +17,14 @@ const LLMList = ({
       <LLMCard
         key={model._id}
         id={model._id}
-        // type={model.type}
         name={model.name}
         organization={model.organization}
-        // description={model.description}
         created={model.created_date}
-        // size={model.size}
-        modality={model.modality}
+        inputModality={model.input}
+        outputModality={model.output}
         access={model.access}
-        // license={model.license}
-        // dependencies={model.dependencies}
-        // setInfo={setInfo}
         accessFilter={accessFilter}
-        modalityFilter={modalityFilter}
+        inputModalityFilter={inputModalityFilter}
         nameSearch={nameSearch}
         orgSearch={orgSearch}
       />
@@ -44,9 +39,10 @@ const LLMList = ({
         <span className="name" onClick={() => setSortType("name")}>
           Name
         </span>
-        <span className="modality" onClick={() => setSortType("modality")}>
-          Modality
+        <span className="inputModality" onClick={() => setSortType("inputModality")}>
+          Input Modality
         </span>
+        <span className="outputModality">Output Modality</span>
         <span className="dateCreated" onClick={() => setSortType("date")}>
           Date Created
         </span>

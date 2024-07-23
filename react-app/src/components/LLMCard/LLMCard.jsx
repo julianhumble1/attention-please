@@ -4,19 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const LLMCard = ({
   id,
-  // type,
   name,
   organization,
-  // description,
   created,
-  // size,
-  modality,
+  inputModality,
+  outputModality,
   access,
-  // license,
-  // dependencies,
-  // setInfo,
   accessFilter,
-  modalityFilter,
+  inputModalityFilter,
   nameSearch,
   orgSearch,
 }) => {
@@ -61,29 +56,16 @@ const LLMCard = ({
     } else {
       setShow("hidden");
     }
-    if (modalityFilter === "allMod") {
+    if (inputModalityFilter === "allMod") {
       setShowMod("");
-    } else if (modality.includes(modalityFilter)) {
+    } else if (inputModality.includes(inputModalityFilter)) {
       setShowMod("");
     } else {
       setShowMod("hiddenMod");
     }
-  }, [accessFilter, modalityFilter]);
+  }, [accessFilter, inputModalityFilter]);
 
   const handleInfo = () => {
-    // setInfo({
-    //   id: id,
-    //   type: type,
-    //   name: name,
-    //   organization: organization,
-    //   description: description,
-    //   created: dateCreated,
-    //   size: size,
-    //   modality: modality,
-    //   access: access,
-    //   license: license,
-    //   dependencies: dependencies,
-    // });
     navigate(`info/${id}`);
   };
 
@@ -93,7 +75,8 @@ const LLMCard = ({
       onClick={() => handleInfo()}
     >
       <span className="name">{name}</span>
-      <span className="modality">{modality.replace(";", ", ")}</span>
+      <span className="inputModality">{inputModality}</span>
+      <span className="outputModality">{outputModality}</span>
       <span className="dateCreated">{dateCreated}</span>
       <span className="access">{access}</span>
       <span className="organization">{organization}</span>

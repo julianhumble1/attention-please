@@ -15,13 +15,16 @@
     cursor: pointer;
 
     .name{
-        width: 15%;
+        width: 20%;
     }
-    .modality{
+    .inputModality{
+        width: 25%;
+    }
+    .outputModality{
         width: 25%;
     }
     .dateCreated{
-        width: 10%;
+        width: 15%;
     }
     .access{
         width: 10%;

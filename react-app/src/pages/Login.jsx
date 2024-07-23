@@ -1,4 +1,4 @@
-import { loginService } from "../utils/user.service";
+import { loginService } from "../services/user.service";
 import "./Login.scss";
 import { useState } from "react";
 import ErrorModal from "../components/ErrorModal/ErrorModal";

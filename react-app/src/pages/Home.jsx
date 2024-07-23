@@ -1,20 +1,20 @@
 import LLMList from "../components/LLMList/LLMList.jsx";
 import Filter from "../components/Filter/Filter.jsx";
 import { useEffect, useState } from "react";
-import { getModels } from "../utils/llm.service.js";
+import { getModels } from "../services/llm.service.js";
 import "./Home.scss";
 
 const Home = ({}) => {
   const [models, setModels] = useState([]);
   const [accessFilter, setAccessFilter] = useState("all");
-  const [modalityFilter, setModalityFilter] = useState("allMod");
+  const [inputModalityFilter, setInputModalityFilter] = useState("allMod");
   const [nameSearch, setNameSearch] = useState("");
   const [orgSearch, setOrgSearch] = useState("");
   const [sortType, setSortType] = useState("name");
 
   useEffect(() => {
     handleGet(sortType);
-  }, [sortType, accessFilter, modalityFilter, nameSearch, orgSearch]);
+  }, [sortType, accessFilter, inputModalityFilter, nameSearch, orgSearch]);
 
   const handleGet = async (sortType) => {
     const modelRes = await getModels();
@@ -26,7 +26,7 @@ const Home = ({}) => {
           if (a.name > b.name) return 1;
         });
       }
-      if (sortType === "modality") {
+      if (sortType === "inputModality") {
         sortedModels = modelRes.data.sort((a, b) => {
           if (a.modality < b.modality) return -1;
           if (a.modality > b.modality) return 1;
@@ -60,10 +60,6 @@ const Home = ({}) => {
     setAccessFilter(access);
   };
 
-  const handleModalityFilter = (modality) => {
-    setModalityFilter(modality);
-  };
-
   const handleNameSearch = (name) => {
     setNameSearch(name);
   };
@@ -77,7 +73,7 @@ const Home = ({}) => {
       <div className="filterBox">
         <Filter
           handleAccessFilter={handleAccessFilter}
-          handleModalityFilter={handleModalityFilter}
+          setInputModalityFilter={setInputModalityFilter}
           handleNameSearch={handleNameSearch}
           handleOrgSearch={handleOrgSearch}
         />
@@ -87,7 +83,7 @@ const Home = ({}) => {
           models={models}
           // setInfo={setInfo}
           accessFilter={accessFilter}
-          modalityFilter={modalityFilter}
+          inputModalityFilter={inputModalityFilter}
           nameSearch={nameSearch}
           orgSearch={orgSearch}
           setSortType={setSortType}

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Filter = ({
   handleAccessFilter,
-  handleModalityFilter,
+  setInputModalityFilter,
   handleNameSearch,
   handleOrgSearch,
 }) => {
@@ -60,8 +60,8 @@ const Filter = ({
     }
   };
 
-  const handleModalilty = (modality) => {
-    handleModalityFilter(modality);
+  const handleInputModality = (modality) => {
+    setInputModalityFilter(modality);
     switch (modality) {
       case "allMod":
         if (allMod === "") {
@@ -155,27 +155,27 @@ const Filter = ({
           }}
         />
       </div>
-      <h5>Modality</h5>
+      <h5>Input Modality</h5>
       <div className="type">
         <div className="typeRow">
-          <button onClick={() => handleModalilty("allMod")} className={allMod}>
+          <button onClick={() => handleInputModality("allMod")} className={allMod}>
             All
           </button>
-          <button onClick={() => handleModalilty("text")} className={text}>
+          <button onClick={() => handleInputModality("text")} className={text}>
             Text
           </button>
-          <button onClick={() => handleModalilty("code")} className={code}>
+          <button onClick={() => handleInputModality("code")} className={code}>
             Code
           </button>
         </div>
         <div className="typeRow">
-          <button onClick={() => handleModalilty("image")} className={image}>
+          <button onClick={() => handleInputModality("image")} className={image}>
             Image
           </button>
-          <button onClick={() => handleModalilty("audio")} className={audio}>
+          <button onClick={() => handleInputModality("audio")} className={audio}>
             Audio
           </button>
-          <button onClick={() => handleModalilty("video")} className={video}>
+          <button onClick={() => handleInputModality("video")} className={video}>
             Video
           </button>
         </div>

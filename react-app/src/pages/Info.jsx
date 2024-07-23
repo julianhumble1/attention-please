@@ -1,6 +1,6 @@
 import "./Info.scss";
 
-import { getModelById } from "../utils/llm.service.js";
+import { getModelById } from "../services/llm.service.js";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -76,8 +76,12 @@ const Info = () => {
               <span className="label">Size:</span> {modelInfo.size}
             </span>
             <span>
-              <span className="label">Modality:</span>{" "}
-              {modelInfo.modality.replace(";", ", ")}
+              <span className="label">Input Modality:</span>{" "}
+              {modelInfo.input}
+            </span>
+            <span>
+              <span className="label">Output Modality:</span>{" "}
+              {modelInfo.output}
             </span>
           </div>
         </div>
