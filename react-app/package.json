@@ -15,6 +15,7 @@
     "@mui/material": "^5.16.4",
     "@mui/x-charts": "^7.11.0",
     "axios": "^1.7.2",
+    "better-react-mathjax": "^2.0.3",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",

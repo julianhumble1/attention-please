@@ -12,17 +12,22 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState();
 
   useEffect(() => {
-    const id = localStorage.getItem("user")
-    if (id) {setLoggedIn(true)}
-  })
+    const id = localStorage.getItem("user");
+    if (id) {
+      setLoggedIn(true);
+    }
+  });
 
   return (
     <>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-        <Route path="/info/:id" element={<Info loggedIn={loggedIn}/>} />
+        <Route
+          path="login"
+          element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
+        />
+        <Route path="/info/:id" element={<Info loggedIn={loggedIn} />} />
         <Route path="/matrix" element={<Matrix />} />
       </Routes>
     </>

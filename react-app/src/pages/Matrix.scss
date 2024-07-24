@@ -18,7 +18,53 @@
     min-height: calc(100vh - 74px);
     
 
-    .graph{
+    .graphCol{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        span{
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+        }
+
+        .slider {
+                -webkit-appearance: none;
+                /* Override default CSS styles */
+                appearance: none;
+                width: 100%;
+                /* Full-width */
+                height: 20px;
+                /* Specified height */
+                background: #d3d3d3;
+                /* Grey background */
+                outline: none;
+                /* Remove outline */
+                opacity: 0.7;
+                /* Set transparency (for mouse-over effects on hover) */
+                -webkit-transition: .2s;
+                /* 0.2 seconds transition on hover */
+                transition: opacity .2s;
+                border-radius: 10px;
+            }
+
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                /* Override default look */
+                appearance: none;
+                width: 20px;
+                /* Set a specific slider handle width */
+                height: 20px;
+                border-radius: 10px;
+                /* Slider handle height */
+                background: hsl(358deg 76% 36%);
+                /* Green background */
+                cursor: pointer;
+                /* Cursor on hover */
+            }
+
+    .graph {
         // background-color: #001427;
         background-color: #003049;
         border-radius: 15px;
@@ -31,13 +77,13 @@
         align-items: center;
         position: relative;
 
-        .bottomText{
+        .bottomText {
             position: absolute;
             top: 635px;
             color: white;
         }
 
-        .leftText{
+        .leftText {
             position: absolute;
             top: 337.5px;
             left: -25px;
@@ -45,11 +91,11 @@
             color: white;
         }
 
-        .scatter{
+        .scatter {
             z-index: 10;
         }
 
-        .outline{
+        .outline {
             position: absolute;
             top: 70px;
             border: solid 2px white;
@@ -60,21 +106,21 @@
             flex-direction: row;
             flex-wrap: wrap;
 
-            .box{
+            .box {
                 width: 278px;
                 height: 278px;
                 border: solid 1px #d3d3d385;
             }
         }
-        
-        .row{
+
+        .row {
             width: 100%;
             display: flex;
-            flex-direction:row;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
 
-            span{
+            span {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -82,28 +128,28 @@
                 font-weight: 600;
                 color: #d3d3d3;
 
-                .chall{
+                .chall {
                     width: 25px;
                     height: 25px;
                     background-color: #ff7f0e;
                     margin-right: 10px;
                 }
 
-                .lead{
+                .lead {
                     width: 25px;
                     height: 25px;
                     background-color: #1f77b4;
                     margin-right: 10px;
                 }
 
-                .play{
+                .play {
                     width: 25px;
                     height: 25px;
                     background-color: #d62728;
                     margin-right: 10px;
                 }
 
-                .vision{
+                .vision {
                     width: 25px;
                     height: 25px;
                     background-color: #2ca02c;
@@ -112,4 +158,7 @@
             }
         }
     }
+
+    }
+    
 }
