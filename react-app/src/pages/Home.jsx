@@ -29,8 +29,14 @@ const Home = ({}) => {
       }
       if (sortType === "inputModality") {
         sortedModels = modelRes.data.sort((a, b) => {
-          if (a.modality < b.modality) return -1;
-          if (a.modality > b.modality) return 1;
+          if (a.input < b.input) return -1;
+          if (a.input > b.input) return 1;
+        });
+      }
+      if (sortType === "outputModality") {
+        sortedModels = modelRes.data.sort((a, b) => {
+          if (a.output < b.output) return -1;
+          if (a.output > b.output) return 1;
         });
       }
       if (sortType === "date") {

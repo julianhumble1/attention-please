@@ -44,7 +44,7 @@ const LLMList = ({
         <span className="inputModality" onClick={() => setSortType("inputModality")}>
           Input Modality
         </span>
-        <span className="outputModality">Output Modality</span>
+        <span className="outputModality" onClick={() => setSortType("outputModality")}>Output Modality</span>
         <span className="dateCreated" onClick={() => setSortType("date")}>
           Date Created
         </span>
