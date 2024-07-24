@@ -17,7 +17,7 @@ const Matrix = () => {
     const fetchModelData = async () => {
       const modelRes = await getModels();
       const first50 = modelRes.data.slice(0,50)
-      setModelData(first50)
+      setModelData(modelRes.data)
     }
 
     fetchModelData()
@@ -167,7 +167,7 @@ const Matrix = () => {
           />
           </ThemeProvider>
 
-        <div className="bottomText">Business readiness</div>
+        <div className="bottomText">Business Readiness</div>
         <div className="row">
           <span><div className="play"/>Players</span>
           <span><div className="vision"/>Visionaries</span>

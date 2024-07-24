@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./LLMCard.scss";
 import { useNavigate } from "react-router-dom";
+import Formatter from "../../utils/Formatter.js";
 
 const LLMCard = ({
   id,
@@ -84,8 +85,8 @@ const LLMCard = ({
       onClick={() => handleInfo()}
     >
       <span className="name">{name}</span>
-      <span className="inputModality">{inputModality}</span>
-      <span className="outputModality">{outputModality}</span>
+      <span className="inputModality">{Formatter.formatMultipleModalities(inputModality)}</span>
+      <span className="outputModality">{Formatter.formatMultipleModalities(outputModality)}</span>
       <span className="dateCreated">{dateCreated}</span>
       <span className="access">{access}</span>
       <span className="organization">{organization}</span>
