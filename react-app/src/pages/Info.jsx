@@ -120,7 +120,14 @@ const Info = ({ loggedIn }) => {
     <>
       {!loading && (
         <div className="info">
-          <h3>{modelInfo.name}</h3>
+          <div className="title">
+            {modelInfo.org_image ? (
+              <img src={`${modelInfo.org_image}`} alt="" />
+            ) : (
+              <img src="/public/icon.webp"></img>
+            )}
+            <h3>{modelInfo.name}</h3>
+          </div>
           <div className="rowOne">
             <div className="col description">
               <div className="row">

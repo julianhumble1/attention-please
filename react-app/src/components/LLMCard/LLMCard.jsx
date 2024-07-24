@@ -16,6 +16,7 @@ const LLMCard = ({
   outputModalityFilter,
   nameSearch,
   orgSearch,
+  image,
 }) => {
   const [dateCreated, setDateCreated] = useState("");
   const [show, setShow] = useState("");
@@ -68,7 +69,10 @@ const LLMCard = ({
     }
     if (outputModalityFilter === "allMod") {
       setShowOutputMod("");
-    } else if (outputModality && outputModality.includes(outputModalityFilter)) {
+    } else if (
+      outputModality &&
+      outputModality.includes(outputModalityFilter)
+    ) {
       setShowOutputMod("");
     } else {
       setShowOutputMod("hiddenMod");
@@ -84,9 +88,18 @@ const LLMCard = ({
       className={`LLMCard ${show} ${showInputMod} ${showOrg} ${showName} ${showOutputMod}`}
       onClick={() => handleInfo()}
     >
+      {image ? (
+        <img src={`${image}`} alt="" />
+      ) : (
+        <img src="/public/icon.webp"></img>
+      )}
       <span className="name">{name}</span>
-      <span className="inputModality">{Formatter.formatMultipleModalities(inputModality)}</span>
-      <span className="outputModality">{Formatter.formatMultipleModalities(outputModality)}</span>
+      <span className="inputModality">
+        {Formatter.formatMultipleModalities(inputModality)}
+      </span>
+      <span className="outputModality">
+        {Formatter.formatMultipleModalities(outputModality)}
+      </span>
       <span className="dateCreated">{dateCreated}</span>
       <span className="access">{access}</span>
       <span className="organization">{organization}</span>

@@ -43,8 +43,6 @@ const Matrix = () => {
   const [inputFilter, setInputFilter] = useState("allMod");
   const [outputFilter, setOutputFilter] = useState("allMod");
 
-  const [filteredData, setFilteredData] = useState([]);
-
   const handleAccess = (access) => {
     setAFilter(access);
     switch (access) {

@@ -29,6 +29,7 @@ const LLMList = ({
         outputModalityFilter={outputModalityFilter}
         nameSearch={nameSearch}
         orgSearch={orgSearch}
+        image={model.org_image}
       />
     ));
     setModelsView(modelCards);
@@ -41,10 +42,18 @@ const LLMList = ({
         <span className="name" onClick={() => setSortType("name")}>
           Name
         </span>
-        <span className="inputModality" onClick={() => setSortType("inputModality")}>
+        <span
+          className="inputModality"
+          onClick={() => setSortType("inputModality")}
+        >
           Input Modality
         </span>
-        <span className="outputModality" onClick={() => setSortType("outputModality")}>Output Modality</span>
+        <span
+          className="outputModality"
+          onClick={() => setSortType("outputModality")}
+        >
+          Output Modality
+        </span>
         <span className="dateCreated" onClick={() => setSortType("date")}>
           Date Created
         </span>
