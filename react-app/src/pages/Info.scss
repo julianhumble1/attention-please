@@ -35,7 +35,7 @@
 
             .infoLabel{
                 font-weight: 700;
-                font-size: 18px;
+                font-size: x-large;
             }
         }
     }
@@ -54,8 +54,27 @@
             
             .label{
                 font-weight: 700;
-                font-size: 18px;
+                font-size: x-large;
             }
         }
+
+        button {
+            background: none;
+            border: none;
+            font-size: medium;
+            text-align: center;
+        }
+
+        button:hover {
+            color: #660708;
+            font-weight: bold;
+        }
+
+        .form{
+            button:hover {
+              color:green
+            }
+        }
+
     }
 }

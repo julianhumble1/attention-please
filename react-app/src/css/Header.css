@@ -3,31 +3,6 @@
     width: 100%;
 }
 
-#admin-button {
-    color: #660708;
-    border: 0;
-    font-size: 20px;
-    font-weight:normal
-}
-
-#admin-button:hover {
-    color: #161A1D;
-    font-weight:500
-}
-
-#catalog-button {
-    color: #660708;
-    border: 0;
-    font-size: 20px;
-    font-weight: normal;
-    padding-left: 20px;
-}
-
-#catalog-button:hover {
-    color: #161A1D;
-    font-weight: 500
-}
-
 .major-mono-display-regular {
     font-family: "Major Mono Display", monospace;
     font-weight: 600;
@@ -35,19 +10,7 @@
     font-size: 24px;
 }
 
-#matrix-button {
-    color: #660708;
-    border: 0;
-    font-size: 20px;
-    font-weight: normal
-}
-
-#matrix-button:hover {
-    color: #161A1D;
-    font-weight: 500
-}
-
-.header-button {
+.col-auto > .header-button {
     color: #660708;
     border: 0;
     font-size: 20px;

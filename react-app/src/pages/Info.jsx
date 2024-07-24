@@ -1,18 +1,22 @@
 import "./Info.scss";
 
-import { getModelById } from "../services/llm.service.js";
+import { getModelById, updateModel } from "../services/llm.service.js";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const Info = () => {
+
+const Info = ({loggedIn}) => {
 
   const modelId = useParams().id;
   const [loading, setLoading] = useState(true);
 
   const [modelInfo, setModelInfo] = useState();
 
-  useEffect(() => {
+  const [editMode, setEditMode] = useState(false)
+  const [descriptionText, setDescriptionText] = useState("")
+  const [editSuccess, setEditSuccess] = useState("")
 
+  useEffect(() => {
     setLoading(true) 
 
     const fetchModelData = async () => {
@@ -24,6 +28,7 @@ const Info = () => {
           modelData.created_date = null
         }
         setModelInfo(modelData)
+        setDescriptionText(modelData.description)
       } catch (e) {
         console.log(e)
         setModelInfo(null)
@@ -34,7 +39,44 @@ const Info = () => {
 
     fetchModelData();
     
-  }, [modelId])
+  }, [modelId, editSuccess])
+
+  const switchEditMode = () => {
+    if (editMode) {
+      setEditMode(false)
+    } else {
+      setEditMode(true)
+      setEditSuccess("")
+    }
+  }
+
+  const handleSubmit = async () => {
+    const token = localStorage.getItem("accessToken")
+    const userId = localStorage.getItem("user")
+    try {
+      const response = await updateModel(
+        modelInfo._id,
+        token,
+        userId,
+        modelInfo.type,
+        modelInfo.name,
+        modelInfo.organization,
+        descriptionText,
+        modelInfo.created_date,
+        modelInfo.size,
+        modelInfo.size_int,
+        modelInfo.modality,
+        modelInfo.access,
+        modelInfo.license,
+        modelInfo.dependencies
+      )
+      setEditMode(false)
+      setEditSuccess("Description successfully updated!")
+    } catch (e) {
+      console.log(e)
+      setEditSuccess(e.message)
+    }
+  }
 
 
   return (
@@ -65,8 +107,33 @@ const Info = () => {
         </div>
         <div className="rowTwo">
           <div className="col">
-            <h4>Description</h4>
-            <span>{modelInfo.description}</span>
+            <div className="row">
+              <span className="col-auto mb-0 fw-bold">Description</span>
+              <div className="col-auto align-middle"> 
+                {loggedIn &&
+                  <button className="p-0" onClick={switchEditMode}>{editMode && "Cancel Edit"}{!editMode && "Edit"}</button>
+                  }
+              </div>
+            </div>
+            {!editMode &&
+              <span>{modelInfo.description}</span>
+            }
+            {editMode && 
+              <div className="form">
+                <textarea className="form-control" type="text" rows="6" onChange={(e) => setDescriptionText(e.target.value)} value={descriptionText}></textarea>
+                <button onClick={() => handleSubmit()}>Submit</button>
+              </div>
+            }
+            {(editSuccess === "Description successfully updated!") && 
+              <div className="fs-6 text-success">
+                {editSuccess}
+              </div>
+            }
+            {((editSuccess !== "Description successfully updated!") && editSuccess) &&
+              <div className="fs-6 text-danger">
+                {editSuccess}
+              </div>
+            }
           </div>
           <div className="col">
             <span>
