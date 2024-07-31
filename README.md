@@ -11,3 +11,8 @@ We developed and implemented ETL (Extract, Transform, Load) processes using Pyth
 We integrated multiple data sources into a unified table, enhancing teamwork and collaboration skills. We overcame challenges, including limited API calls and difficulties in finding comprehensive logo APIs. We conducted data transformation tasks such as separating data into distinct columns and removing duplicate data.
 
 We worked using Agile practices & methodologies, sharing a Miro board to create Kanban boards and various wireframes. We split the project into two sprints, holding a retrospective at the end of the first sprint to ensure we completed the story points we set out to achieve. We also completed daily standups as a team at 4pm each day of the event.
+
+![catalog page](./screenshots/catalog-page.png)
+![detail page](./screenshots/details-page.png)
+![matrix page](./screenshots/matrix-page.png)
+![agile retro](./screenshots/agile-retro.png)
