@@ -10,12 +10,7 @@ export default class Database {
     connect = async () => {
         try {
             await mongoose.connect(this.#uri);
-            const db = mongoose.connection;
 
-            // Listen for the 'connected' event
-            db.on('connected', () => {
-            console.log('Connected to the database successfully');
-            });
 
             
             console.log(`Database connection to ${this.#uri} was successful`)
